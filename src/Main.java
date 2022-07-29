@@ -42,9 +42,13 @@ public class Main {
                 } else {
                     countProduct[numProduct] = count;
                 }
-                costProduct[numProduct] = countProduct[numProduct] * prices[numProduct];
+                if (countProduct[numProduct]%3 == 0){
+                    costProduct[numProduct] = (countProduct[numProduct]/3*2)*prices[numProduct];
+                } else {
+                    costProduct[numProduct] = ((countProduct[numProduct]-countProduct[numProduct]%3)/3*2) * prices[numProduct]+
+                            countProduct[numProduct]%3 * prices[numProduct];
+                }
             }
-
         }
         int sum = 0;
         for (int totalSum : costProduct) {
